@@ -1,6 +1,10 @@
 var mongoose = require('mongoose')
 
-module.exports = mongoose.model('User', {
+mongoose.connect('mongodb://localhost:27017/posts')
+
+var user = mongoose.Schema({
     username: String,
-    passwordHash: String
+    password: { type: String, select: false }
 })
+
+module.exports = mongoose.model('User', user)

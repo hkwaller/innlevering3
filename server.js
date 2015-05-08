@@ -1,18 +1,14 @@
 var express =               require('express'),
-    expressJwt =            require('express-jwt'),
     app =                   express(),
+    jwt =                   require('jwt-simple'),
     bodyParser =            require('body-parser'),
-    mongoose =              require('mongoose'),
-    jwt =                   require('jsonwebtoken'),
     websocket =             require('./server/websockets.js'),
     postController =     require('./server/controllers/post-controller.js'),
-    authController =       require('./server/controllers/auth-controller.js')
+    authController =       require('./server/controllers/auth-controller.js'),
+    auth =                  require('./auth')
 
-mongoose.connect('mongodb://localhost:27017/posts')
+var secret = 'supermegasecret'
 
-var secret = "supersecret"
-
-app.use('/api/', expressJwt({secret: secret}))
 app.use('/', express.static(__dirname + '/webapp/'))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

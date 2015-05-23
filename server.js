@@ -3,8 +3,10 @@ var express =               require('express'),
     jwt =                   require('jwt-simple'),
     bodyParser =            require('body-parser'),
     websocket =             require('./server/websockets.js'),
-    postController =     require('./server/controllers/post-controller.js'),
-    authController =       require('./server/controllers/auth-controller.js'),
+    mongoose =              require('mongoose'),
+    postController =        require('./server/controllers/post-controller.js'),
+    authController =        require('./server/controllers/auth-controller.js'),
+    db =                    require('./db.js'),
     auth =                  require('./auth')
 
 var secret = 'supermegasecret'
@@ -19,7 +21,8 @@ app.post('/api/posts', postController.create)
 app.get('/api/posts', postController.list)
 app.delete('/api/posts', postController.delete)
 
-var server = app.listen(3000, function() {
+var port = process.env.PORT || 3000
+var server = app.listen(port, function() {
     console.log('Im alive..')
     websocket.connect(server)
 })

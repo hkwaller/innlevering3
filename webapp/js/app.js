@@ -39,9 +39,9 @@ angular.module('TopSecret', ['secret.controllers', 'ui.router', 'ngResource', 't
     })
 })
 
-.run(function($rootScope, $timeout) {
+.run(function($rootScope, $timeout, $location) {
     (function connect() {
-        var url = 'ws://localhost:3000';
+        var url = 'ws://' + $location.host() + ':' + $location.port();
         var connection = new WebSocket(url);
         
         connection.onclose = function(e) {

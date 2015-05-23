@@ -1,10 +1,10 @@
 angular.module('secret.controllers', [])
 
 .controller('LoginCtrl', ['$scope', '$http', '$animate', '$window', '$location', '$rootScope', function($scope, $http, $animate, $window, $location, $rootScope) {
-  $scope.user = {
-    'username': 'kung',
-    'password': 'cool'
-  }
+//  $scope.user = {
+//    'username': 'kung',
+//    'password': 'cool'
+//  }
     
   $scope.login = function(user) {
     $http.post('/authenticate', {username: user.username, password: user.password})
@@ -98,13 +98,6 @@ angular.module('secret.controllers', [])
 
     $http.defaults.headers.common['X-Auth'] = $window.sessionStorage.token;
 
-    $scope.post = {
-        'title':'test',
-        'text':'öööh text?',
-        'public':true,
-        'username':'kung'
-    }
-    
     $scope.submit = function(post) {
         if (post.title === undefined || post.text === undefined) {
             toaster.pop({type: 'error', title: "Nothing here", body:"Dude, write something"});

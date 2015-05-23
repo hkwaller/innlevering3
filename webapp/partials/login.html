@@ -4,14 +4,14 @@
             <form class="login-form">
               <div class="form-group">
                 <label>Login</label>
-                <input type="text" class="form-control" id="login" placeholder="Enter username" ng-model="user.username">
+                <input type="text" class="form-control" placeholder="Enter username" ng-model="user.username">
               </div>
               <div class="form-group">
                 <label>Password</label>
                 <input type="password" class="form-control" id="password" placeholder="Password" ng-model="user.password">
               </div>
-              <button type="submit" class="btn btn-default text-center" ng-click="login(user)">Login</button>
-              <button type="submit" class="btn btn-default text-center" ng-click="signup(user)">Signup</button>
+              <button id="login" type="submit" class="btn btn-default text-center" ng-click="login(user)">Login</button>
+              <button id="signup" type="signup" class="btn btn-default text-center" ng-click="signup(user)">Signup</button>
             <div>To sign up enter your details and press sign up</div>
             </form>
         </div>

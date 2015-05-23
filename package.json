@@ -1,5 +1,5 @@
 {
-  "name": "Moviebuddy",
+  "name": "postsnstuff",
   "version": "0.0.1",
   "dependencies": {
     "bcrypt": "^0.8.2",
@@ -10,5 +10,10 @@
     "lodash": "^3.5.0",
     "mongoose": "^3.8.24",
     "ws": "^0.7.1"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "mocha": "^2.2.4",
+    "protractor": "^2.0.0"
   }
 }
